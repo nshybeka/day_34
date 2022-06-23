@@ -2,6 +2,7 @@ import html
 
 
 class QuizBrain:
+    """Create the question and check answer."""
 
     def __init__(self, q_list):
         self.question_number = 0
@@ -16,7 +17,7 @@ class QuizBrain:
         self.current_question = self.question_list[self.question_number]
         self.question_number += 1
         q_text = html.unescape(self.current_question.text)
-        return f"Q.{self.question_number}: {q_text} (True/False): "
+        return f"Question {self.question_number}:\n{q_text} (True/False): "
 
         # self.check_answer(user_answer)
 
@@ -28,4 +29,3 @@ class QuizBrain:
 
         else:
             return False
-

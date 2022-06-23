@@ -1,9 +1,11 @@
 from tkinter import *
 from quiz_brain import QuizBrain
+
 THEME_COLOR = "#375362"
 
 
 class QuizInterface:
+    """Create user interface"""
 
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
@@ -39,7 +41,6 @@ class QuizInterface:
     def get_next_question(self):
         self.canvas.config(bg="white")
         if self.quiz.still_has_questions():
-
             self.score_label.config(text=f"Score: {self.quiz.score}")
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
@@ -61,8 +62,3 @@ class QuizInterface:
         else:
             self.canvas.config(bg="red")
         self.window.after(1000, self.get_next_question)
-
-
-
-
-
